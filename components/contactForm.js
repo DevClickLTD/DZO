@@ -256,7 +256,9 @@ export default function ContactForm() {
           <div className="mt-8 flex justify-end">
             <button
               type="submit"
-              className={`rounded-md bg-[#129160] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-gray-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
+              className={`rounded-md bg-[#129160] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs ${
+                isVerified ? "hover:bg-gray-300 cursor-pointer" : ""
+              } focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
                 !isVerified ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={loading || !isVerified}
