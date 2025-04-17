@@ -136,7 +136,7 @@ export default function Footer() {
           />
         </svg>
       </div>
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-32">
+      <div className="mx-auto max-w-7xl px-6 pt-8 pb-6 sm:pt-12 lg:px-8 lg:pt-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div>
             <img alt="" src="/next-level-logo.png" width={180} height={40} />
