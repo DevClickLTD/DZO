@@ -4,14 +4,17 @@ export default function CTA() {
       <div className="mx-auto max-w-10/10 py-0 sm:px-6 sm:py-0 lg:px-0">
         <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 text-center shadow-2xl sm:px-16">
           <h2 className="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">
-            Lorem ipsum
+            Ползи за служителите
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-gray-300">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
+          <ul className="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-gray-300 text-left list-disc space-y-3 pl-6">
+            <li><strong>Достъп до качествена медицинска помощ:</strong> <br /> Включва прегледи, изследвания
+            и лечение в утвърдени здравни заведения.</li>
+            <li><strong>Безкасово обслужване:</strong> <br /> Застрахователят покрива разходите директно, без нужда от
+            предварително плащане от страна на служителя.</li>
+            <li><strong>Телемедицина:</strong> <br /> Новост в Допълнителното здравно осигуряване, бърза реакция и адекватно
+            решение за малки оплаквания.</li>
+            <li><strong>Покритие за членове на семейството:</strong> <br /> Възможност за включване на близки лица в застраховката, вкл. деца.</li>
+          </ul>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
               href="/services"

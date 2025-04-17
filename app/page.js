@@ -12,7 +12,7 @@ const Clients = dynamic(() => import("../components/clients"), { ssr: true });
 const Newsletter = dynamic(() => import("../components/newsletter"), {
   ssr: true,
 });
-const Testimonial = dynamic(() => import("../components/testimonial"), {
+const Coverage = dynamic(() => import("../components/Coverage"), {
   ssr: true,
 });
 const Lastestposts = dynamic(() => import("../components/latestposts"), {
@@ -65,7 +65,7 @@ export default function Home() {
       <CTA />
       <Clients />
       <Newsletter />
-      <Testimonial />
+      <Coverage />
       <Lastestposts />
     </>
   );
