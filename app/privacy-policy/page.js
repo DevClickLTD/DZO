@@ -128,18 +128,9 @@ export default async function PrivacyPolicy() {
           >
             <strong>Email:</strong> {contactInfo.email} <br />
           </Link>
-          <Link
-            href={`tel:${contactInfo.phone_number}`}
-            className="hover:text-gray-900"
-          >
-            <strong>Телефон:</strong> {contactInfo.phone_number} <br />
-          </Link>
           <strong>Адрес:</strong> {contactInfo.address}
         </p>
       )}
-      <p className="text-gray-700 mt-2">
-        <strong>Алтернативен имейл за въпроси относно поверителността:</strong> hello@insurance.bg
-      </p>
     </div>
   );
 }
