@@ -25,37 +25,30 @@ export async function generateMetadata() {
 
   return {
     metadataBase: new URL(`${protocol}://${host}`),
-    title: {
-      template: "%s | NextLevel Services",
-      default: "NextLevel Services | Професионални бизнес услуги",
-    },
+    title: "Допълнително здравно осигуряване (ДЗО) - За фирми и физически лица",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Допълнително здравно осигуряване (ДЗО) - Пакетни оферти за фирми и физически лица от отвърдени застрахователни застрахователни компании. Изпратете ни запитване.",
     openGraph: {
-      title: "NextLevel Services | Професионални бизнес услуги",
+      title:
+        "Допълнително здравно осигуряване (ДЗО) - За фирми и физически лица",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      images: "/lawyer.webp",
-      type: "website",
+        "Допълнително здравно осигуряване (ДЗО) - Пакетни оферти за фирми и физически лица от отвърдени застрахователни застрахователни компании. Изпратете ни запитване.",
+      images: [
+        {
+          url: "/dobrovolno-zdravno-osiguriavane.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Допълнително здравно осигуряване",
+        },
+      ],
       locale: "bg_BG",
-      siteName: "NextLevel Services",
+      type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "NextLevel Services",
-      description: "Lorem ipsum dolor sit amet",
-      images: ["/lawyer.webp"],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
+      title: "Допълнително здравно осигуряване (ДЗО) - За фирми и физически лица",
+      description: "Допълнително здравно осигуряване (ДЗО) - Пакетни оферти за фирми и физически лица от отвърдени застрахователни застрахователни компании. Изпратете ни запитване.",
+      images: ["/dobrovolno-zdravno-osiguriavane.jpg"],
     },
     alternates: {
       canonical: "/",
