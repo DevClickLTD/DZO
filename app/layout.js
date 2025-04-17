@@ -2,9 +2,9 @@ import { headers } from "next/headers";
 import Navigation from "../components/nav";
 import CookieConsentBanner from "../components/cookieConsentBanner";
 import Footer from "../components/footer";
-import Script from "next/script";
 import ImagePreloader from "../components/ImagePreloader";
 import { CriticalCSS } from "./critical-css";
+import { Analytics } from "@vercel/analytics/next";
 
 import "../styles/globals.css";
 import { Roboto } from "next/font/google";
@@ -46,8 +46,10 @@ export async function generateMetadata() {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Допълнително здравно осигуряване (ДЗО) - За фирми и физически лица",
-      description: "Допълнително здравно осигуряване (ДЗО) - Пакетни оферти за фирми и физически лица от отвърдени застрахователни застрахователни компании. Изпратете ни запитване.",
+      title:
+        "Допълнително здравно осигуряване (ДЗО) - За фирми и физически лица",
+      description:
+        "Допълнително здравно осигуряване (ДЗО) - Пакетни оферти за фирми и физически лица от отвърдени застрахователни застрахователни компании. Изпратете ни запитване.",
       images: ["/dobrovolno-zdravno-osiguriavane.jpg"],
     },
     alternates: {
@@ -93,36 +95,10 @@ export default function RootLayout({ children }) {
       <body className={roboto.className}>
         <ImagePreloader />
         <Navigation />
-        <main>{children}</main>
+        {children}
+        <Analytics />
         <CookieConsentBanner />
         <Footer />
-        <Script
-          id="structured-data"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LegalService",
-              name: "Lorem ipsum dolor sit amet",
-              description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              url: "https://example.bg",
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+359XXXXXXXXX",
-                contactType: "customer service",
-              },
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Example Street 123",
-                addressLocality: "София",
-                postalCode: "1000",
-                addressCountry: "BG",
-              },
-            }),
-          }}
-        />
       </body>
     </html>
   );
