@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const URL_FORM =
-  "https://dzo.polirane.net/wp-json/contact-form-7/v1/contact-forms/43/feedback";
+  "https://dzo.polirane.net/wp-json/contact-form-7/v1/contact-forms/93/feedback";
 
 export default function ContactForm() {
   const [errors, setErrors] = useState({});
@@ -74,7 +74,7 @@ export default function ContactForm() {
     const phoneNumber = e.target["phone-number"].value;
     const message = e.target.message.value;
 
-    formData.append("_wpcf7_unit_tag", "43");
+    formData.append("_wpcf7_unit_tag", "93");
     formData.append("your-name", name);
     formData.append("your-email", email);
     formData.append("your-subject", subject);
