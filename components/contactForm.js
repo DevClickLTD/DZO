@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Swal from "sweetalert2";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const URL_FORM =
   "https://dzo.polirane.net/wp-json/contact-form-7/v1/contact-forms/43/feedback";
@@ -9,9 +10,60 @@ const URL_FORM =
 export default function ContactForm() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
+  const recaptchaRef = useRef(null);
+
+  const handleCaptchaChange = async (token) => {
+    if (!token) {
+      setIsVerified(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/verify-recaptcha", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ token })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setIsVerified(true);
+      } else {
+        console.error("reCAPTCHA verification failed:", data.errors);
+        setIsVerified(false);
+        if (data.errors && data.errors.length > 0) {
+          Swal.fire({
+            icon: "error",
+            title: "Грешка при потвърждаване!",
+            text: "Моля, опитайте отново или свържете се с нас, ако проблемът продължава.",
+          });
+        }
+      }
+    } catch (error) {
+      console.error("reCAPTCHA verification error:", error);
+      setIsVerified(false);
+    }
+  };
+
+  const handleCaptchaExpired = () => {
+    setIsVerified(false);
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
+    
+    if (!isVerified) {
+      Swal.fire({
+        icon: "error",
+        title: "Грешка при изпращане!",
+        text: "Моля, потвърдете, че не сте робот.",
+      });
+      return;
+    }
+    
     setLoading(true);
 
     const formData = new FormData();
@@ -53,6 +105,8 @@ export default function ContactForm() {
         });
         setErrors({});
         e.target.reset();
+        recaptchaRef.current.reset();
+        setIsVerified(false);
       } else {
         Swal.fire({
           icon: "error",
@@ -190,12 +244,22 @@ export default function ContactForm() {
                 />
               </div>
             </div>
+            <div className="sm:col-span-2">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                onChange={handleCaptchaChange}
+                onExpired={handleCaptchaExpired}
+              />
+            </div>
           </div>
           <div className="mt-8 flex justify-end">
             <button
               type="submit"
-              className="rounded-md bg-[#129160] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-gray-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              disabled={loading}
+              className={`rounded-md bg-[#129160] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-gray-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
+                !isVerified ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={loading || !isVerified}
             >
               Изпрати запитване
             </button>
