@@ -226,7 +226,14 @@ export default function Footer() {
         </div>
         <div className="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
           <p className="mt-8 text-sm/6 text-gray-600 md:order-1 md:mt-0">
-            &copy; {year} DZO, Inc. All rights reserved.
+            &copy; {year} DZO, All rights reserved - Powered by{" "}
+            <Link
+              href="https://insurance.bg/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Insurance.bg
+            </Link>
           </p>
         </div>
       </div>
