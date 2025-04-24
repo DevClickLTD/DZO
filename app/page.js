@@ -6,7 +6,6 @@ import dynamic from "next/dynamic";
 const Incentives = dynamic(() => import("../components/incentives"), {
   ssr: true,
 });
-const Team = dynamic(() => import("../components/team"), { ssr: true });
 const CTA = dynamic(() => import("../components/cta"), { ssr: true });
 const Clients = dynamic(() => import("../components/clients"), { ssr: true });
 const Newsletter = dynamic(() => import("../components/newsletter"), {
@@ -58,10 +57,9 @@ export default function Home() {
       <WebVitals />
       <HeroSection />
       <Incentives />
-      <Team />
-      <CTA />
       <Clients />
-      <Newsletter />
+      <CTA />
+      {/* <Newsletter /> */}
       <Coverage />
       <Lastestposts />
     </>

@@ -42,7 +42,7 @@ export default function Navigation() {
     ],
     pages: [
       { name: "Начало", href: "/" },
-      { name: "Екип", href: "/team" },
+      // { name: "Екип", href: "/team" },
       { name: "Блог", href: "/blog" },
       { name: "Контакти", href: "/contact" },
     ],
@@ -275,7 +275,7 @@ export default function Navigation() {
                         {({ open, close }) => (
                           <>
                             <div className="relative flex">
-                              <PopoverButton className="relative z-10 -mb-px flex items-center border-b-2 border-transparent pt-px font-medium text-gray-700 transition-colors duration-200 ease-out hover:text-gray-800 data-open:border-[#129160] data-open:text-[#129160] cursor-pointer focus-visible:outline-none transition-all text-base">
+                              <PopoverButton className="relative z-10 -mb-px flex items-center border-b-2 border-transparent pt-px font-medium text-gray-700 duration-200 ease-out hover:text-gray-800 data-open:border-[#129160] data-open:text-[#129160] cursor-pointer focus-visible:outline-none transition-all text-base">
                                 {category.name}
                                 <ChevronDownIcon
                                   className={`ml-2 h-5 w-5 text-gray-500 transition-transform duration-200 ease-in-out ${
