@@ -58,29 +58,35 @@ export default function Coverage() {
               <h3 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
                 ДЗО: Основни покрития
               </h3>
+              <p className="mt-6 text-lg/8 text-gray-600">
+                Стандартни здравни услуги, включени във всяко допълнително
+                здравно осигуряване
+              </p>
               <ul className="list-disc list-inside text-pretty text-gray-900 space-y-3 mt-6">
                 <li>
-                  <strong>Извънболнична помощ:</strong> <br /> Прегледи при
-                  специалисти в поликлиника, лабораторни и образни изследвания.
+                  <strong>Амбулаторна помощ</strong>
                 </li>
                 <li>
-                  <strong>Болнично лечение:</strong> <br /> Хоспитализация и
-                  хирургични интервенции.
+                  <strong>Лабораторна диагностика</strong>
                 </li>
                 <li>
-                  <strong>Медикаменти:</strong> <br /> Покритие на разходи за
-                  предписани лекарства и медицински средства (вкл. диоптрични
-                  стъкла).
+                  <strong>Болнично лечение</strong>
                 </li>
                 <li>
-                  <strong>Профилактика:</strong> <br /> Годишни профилактични
-                  прегледи за служители (опционално).
+                  <strong>Спешна медицинска помощ</strong>
                 </li>
                 <li>
-                  <strong>Дентална помощ:</strong> <br /> Достъп до
-                  стоматологични кабинети (опционално).
+                  <strong>Медикаменти</strong>
+                </li>
+                <li>
+                  <strong>Допълнителни базови услуги</strong>
                 </li>
               </ul>
+              <p className="mt-6 text-lg/8 text-gray-600">
+                Покритията може да варират според конкретния пакет и
+                застрахователна компания. Свържете се с нас за персонализирана
+                консултация.
+              </p>
             </div>
             <div className="mt-10 flex">
               <a

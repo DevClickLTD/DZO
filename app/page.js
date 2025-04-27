@@ -6,6 +6,9 @@ import dynamic from "next/dynamic";
 const Incentives = dynamic(() => import("../components/incentives"), {
   ssr: true,
 });
+const ImportanceCta = dynamic(() => import("../components/importanceCta"), {
+  ssr: true,
+});
 const CTA = dynamic(() => import("../components/cta"), { ssr: true });
 const Clients = dynamic(() => import("../components/clients"), { ssr: true });
 const Newsletter = dynamic(() => import("../components/newsletter"), {
@@ -26,12 +29,11 @@ export const metadata = {
   title: "Допълнително здравно осигуряване (ДЗО) - За фирми и физически лица",
   description:
     "Допълнително здравно осигуряване (ДЗО) - Пакетни оферти за фирми и физически лица от отвърдени застрахователни застрахователни компании. Изпратете ни запитване.",
-  keywords: [
-    "допълнително здравно осигуряване",
-  ],
+  keywords: ["допълнително здравно осигуряване"],
   openGraph: {
     title: "Допълнително здравно осигуряване (ДЗО) - За фирми и физически лица",
-    description: "Допълнително здравно осигуряване (ДЗО) - Пакетни оферти за фирми и физически лица от отвърдени застрахователни застрахователни компании. Изпратете ни запитване.",
+    description:
+      "Допълнително здравно осигуряване (ДЗО) - Пакетни оферти за фирми и физически лица от отвърдени застрахователни застрахователни компании. Изпратете ни запитване.",
     images: [
       {
         url: "/dobrovolno-zdravno-osiguriavane.jpg",
@@ -46,7 +48,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Допълнително здравно осигуряване (ДЗО) - За фирми и физически лица",
-    description: "Допълнително здравно осигуряване (ДЗО) - Пакетни оферти за фирми и физически лица от отвърдени застрахователни застрахователни компании. Изпратете ни запитване.",
+    description:
+      "Допълнително здравно осигуряване (ДЗО) - Пакетни оферти за фирми и физически лица от отвърдени застрахователни застрахователни компании. Изпратете ни запитване.",
     images: ["/dobrovolno-zdravno-osiguriavane.jpg"],
   },
 };
@@ -57,6 +60,7 @@ export default function Home() {
       <WebVitals />
       <HeroSection />
       <Incentives />
+      <ImportanceCta />
       <Clients />
       <CTA />
       {/* <Newsletter /> */}

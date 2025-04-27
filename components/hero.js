@@ -30,30 +30,30 @@ export default function Hero() {
 
           <div className="px-6 py-10">
             <h1 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 font-display">
-              Допълнително здравно осигуряване за фирми
+              Служители заслужават най-добрата грижа. Бизнесът - също.
             </h1>
             <p className="mt-4 text-2xl font-medium font-display">
-              Основна информация
+              Допълнителното здравно осигуряване е инвестиция с двойна
+              възвръщаемост
             </p>
             <p className="mt-6 text-sm font-medium text-pretty text-gray-500 font-display">
-              Допълнителното здравно осигуряване (ДЗО) за фирми е стратегически
-              инструмент за подобряване на благосъстоянието на служителите и
-              повишаване на конкурентоспособността на работодателя. То осигурява
-              достъп до качествени медицински услуги и демонстрира ангажираност
-              към здравето на екипа.
+              Здравето на служители е най-ценният актив на компанията.
+              Предоставяйки им достъп до висококачествени здравни услуги, не
+              просто се подобрява тяхното благосъстояние, но и се гради
+              по-продуктивен и отдаден екип.
             </p>
             <div className="mt-8 flex items-center gap-x-4">
               <Link
                 href="/services"
                 className="rounded-md bg-[#129160] hover:bg-gray-300 hover:text-[#000000] px-3 py-2 text-sm font-semibold text-white shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Услуги
+                Виж услугите
               </Link>
               <Link
                 href="/contact"
                 className="text-sm font-semibold text-gray-900"
               >
-                Контакти <span aria-hidden="true">→</span>
+                Вземи оферта! <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
@@ -92,11 +92,11 @@ export default function Hero() {
                     Основна информация
                   </p>
                   <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8 font-display">
-                    Допълнителното здравно осигуряване (ДЗО) за фирми е стратегически
-                    инструмент за подобряване на благосъстоянието на служителите и
-                    повишаване на конкурентоспособността на работодателя. То осигурява
-                    достъп до качествени медицински услуги и демонстрира ангажираност
-                    към здравето на екипа.
+                    Допълнителното здравно осигуряване (ДЗО) за фирми е
+                    стратегически инструмент за подобряване на благосъстоянието
+                    на служителите и повишаване на конкурентоспособността на
+                    работодателя. То осигурява достъп до качествени медицински
+                    услуги и демонстрира ангажираност към здравето на екипа.
                   </p>
                   <div className="mt-10 flex items-center gap-x-6">
                     <Link
