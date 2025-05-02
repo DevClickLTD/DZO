@@ -13,7 +13,7 @@ const navigation = {
     { name: "Контакти", href: "/contact" },
   ],
   legal: [
-    { name: "Условия за ползване", href: "#" },
+    { name: "Условия за ползване", href: "/obsthi-usloviya" },
     { name: "Политика за поверителност", href: "/privacy-policy" },
   ],
   social: [
