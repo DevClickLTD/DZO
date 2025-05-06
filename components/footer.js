@@ -138,7 +138,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 pt-8 pb-6 sm:pt-12 lg:px-8 lg:pt-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div>
-            <img alt="" src="/next-level-logo.png" width={180} height={40} />
+            <img alt="" src="/DZO-logo.svg" width={180} height={40} />
           </div>
           <div className="mt-16 grid xl:col-span-2 xl:mt-0">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">

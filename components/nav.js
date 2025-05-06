@@ -151,7 +151,7 @@ export default function Navigation() {
               </button>
               <div className="ml-4">
                 <Image
-                  src="/next-level-logo.png"
+                  src="/DZO-logo.svg"
                   alt=""
                   width={180}
                   height={40}
@@ -244,14 +244,14 @@ export default function Navigation() {
 
               {/* Секция 1: Лого */}
               <div className="w-1/4 lg:w-1/5 flex items-center justify-start">
-                <Link href="/" className="block">
-                  <span className="sr-only">NextLevel Theme</span>
+                <Link href="/" className="block h-[60px]">
+                  <span className="sr-only">dzo.bg</span>
                   <Image
                     width={180}
                     height={40}
                     alt=""
-                    src="/next-level-logo.png"
-                    className="w-auto transition-all duration-300 ease-in-out"
+                    src="/DZO-logo.svg"
+                    className="h-[60px] transition-all duration-300 ease-in-out"
                   />
                 </Link>
               </div>
