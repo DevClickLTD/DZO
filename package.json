@@ -17,6 +17,7 @@
     "@vercel/analytics": "^1.5.0",
     "critters": "^0.0.23",
     "next": "15.1.7",
+    "nextjs-toploader": "^3.8.16",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-cookie-consent": "^9.0.0",

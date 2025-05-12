@@ -5,7 +5,7 @@ import Footer from "../components/footer";
 import ImagePreloader from "../components/ImagePreloader";
 import { CriticalCSS } from "./critical-css";
 import { Analytics } from "@vercel/analytics/next";
-
+import NextTopLoader from "nextjs-toploader";
 import "../styles/globals.css";
 import { Roboto } from "next/font/google";
 
@@ -93,6 +93,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={roboto.className}>
+        <NextTopLoader color="#129160" showSpinner={false}/>
         <ImagePreloader />
         <Navigation />
         {children}
