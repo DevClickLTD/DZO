@@ -2,9 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Блог - NextLevel Theme",
+  title: "Блог - dzo.bg",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Прочетете нашите статии и новини за допълнително здравно осигуряване (ДЗО) и свързани теми.",
+  openGraph: {
+    title: "Блог - dzo.bg",
+    description:
+      "Прочетете нашите статии и новини за допълнително здравно осигуряване (ДЗО) и свързани теми.",
+    images: [
+      {
+        url: "/zdravno-zastrahovane.webp",
+        width: 1200,
+        height: 630,
+        alt: "Блог - dzo.bg",
+      },
+    ],
+    locale: "bg_BG",
+    type: "website",
+  },
 };
 
 export default async function Blog({ searchParams }) {
