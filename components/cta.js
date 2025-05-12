@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function CTA() {
@@ -105,21 +106,21 @@ export default function CTA() {
             </div>
             <button
               onClick={toggleShowMore}
-              className="mt-4 px-4 py-2 bg-[#129160] hover:bg-gray-300 hover:text-[#000000] rounded-md cursor-pointer hover:bg-[#0d6b47] transition-colors duration-300"
+              className="mt-4 px-4 py-2 bg-[#129160] hover:bg-gray-300 hover:text-[#000000] rounded-md cursor-pointer transition-colors duration-300"
             >
               {showMoreItems ? "Скрий" : "Вижте повече"}
             </button>
           </ul>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <a
+            <Link
               href="/services"
               className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Всички услуги
-            </a>
-            <a href="/contact" className="text-sm/6 font-semibold text-white">
+            </Link>
+            <Link href="/contact" className="text-sm/6 font-semibold text-white">
               Контакти <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </div>
           <svg
             viewBox="0 0 1024 1024"

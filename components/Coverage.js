@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const stats = [
   { label: "Founded", value: "2021" },
   { label: "Employees", value: "37" },
@@ -89,13 +91,13 @@ export default function Coverage() {
               </p>
             </div>
             <div className="mt-10 flex">
-              <a
+              <Link
                 href="/contact"
                 className="text-base/7 font-semibold text-[#129160]"
               >
                 Свържете се с нас
                 <span aria-hidden="true">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
