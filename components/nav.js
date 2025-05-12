@@ -307,8 +307,8 @@ export default function Navigation() {
                                           <Image
                                             width={560}
                                             height={560}
-                                            alt=""
-                                            src="/menu-hero-image.jpg"
+                                            alt="здравно застраховане"
+                                            src="/zdravno-zastrahovane.webp"
                                             className="w-full rounded-lg bg-gray-100 object-cover group-hover:opacity-75"
                                           />
                                         </div>
