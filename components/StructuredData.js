@@ -13,6 +13,7 @@ export function LocalBusinessSchema() {
     image: "https://dzo.bg/dobrovolno-zdravno-osiguriavane.jpg",
     description:
       "Водещ доставчик на допълнително здравно осигуряване в България. Предлагаме пакетни оферти за фирми и физически лица от отвърдени застрахователни компании.",
+    telephone: "+359-888-123-456",
     address: {
       "@type": "PostalAddress",
       streetAddress: "ул. Lorem Ipsum 123",
@@ -137,9 +138,8 @@ export function OrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
     "@id": "https://dzo.bg/#organization",
-    name: "ДЗО.БГ",
-    alternateName: "dzo.bg",
     legalName: "ДЗО ЕООД",
+    alternateName: "dzo.bg",
     url: "https://dzo.bg",
     logo: {
       "@type": "ImageObject",
@@ -150,6 +150,7 @@ export function OrganizationSchema() {
     image: "https://dzo.bg/dobrovolno-zdravno-osiguriavane.jpg",
     description:
       "Водеща компания за допълнително здравно осигуряване в България, предлагаща разнообразни застрахователни продукти и услуги.",
+    telephone: "+359-888-123-456",
     foundingDate: "2020-01-01",
     founders: [
       {
@@ -384,6 +385,24 @@ export function BlogSchema() {
 
 // Схема за Article/BlogPosting
 export function ArticleSchema({ article }) {
+  // Функция за форматиране на дата с часова зона
+  const formatDateWithTimezone = (dateString) => {
+    if (!dateString) return "2024-01-01T00:00:00+02:00";
+
+    try {
+      const date = new Date(dateString);
+      // Ако датата вече има часова зона, използваме я
+      if (dateString.includes("+") || dateString.includes("Z")) {
+        return dateString;
+      }
+      // Иначе добавяме българската часова зона (+02:00)
+      const bulgTime = new Date(date.getTime() + 2 * 60 * 60 * 1000);
+      return bulgTime.toISOString().replace("Z", "+02:00");
+    } catch (error) {
+      return "2024-01-01T00:00:00+02:00";
+    }
+  };
+
   const articleData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -393,8 +412,8 @@ export function ArticleSchema({ article }) {
       article.description ||
       "Lorem ipsum описание на статията за допълнително здравно осигуряване и свързаните теми.",
     image: article.image || "https://dzo.bg/placeholder.webp",
-    datePublished: article.datePublished || "2024-01-01T00:00:00+02:00",
-    dateModified: article.dateModified || "2024-01-01T00:00:00+02:00",
+    datePublished: formatDateWithTimezone(article.datePublished),
+    dateModified: formatDateWithTimezone(article.dateModified),
     author: {
       "@type": "Person",
       name: article.author || "Lorem Ipsum Автор",
@@ -513,7 +532,8 @@ export function ProductSchema({ service }) {
       "Lorem ipsum описание на услугата за допълнително здравно осигуряване.",
     image: service.image || "https://dzo.bg/placeholder.webp",
     brand: {
-      "@id": "https://dzo.bg/#organization",
+      "@type": "Brand",
+      name: "ДЗО.БГ",
     },
     manufacturer: {
       "@id": "https://dzo.bg/#organization",
@@ -522,13 +542,37 @@ export function ProductSchema({ service }) {
     offers: {
       "@type": "Offer",
       priceCurrency: "BGN",
-      price: service.price || "100",
+      price: parseFloat(service.price) || 100.0,
       priceValidUntil: "2024-12-31",
       availability: "https://schema.org/InStock",
       seller: {
         "@id": "https://dzo.bg/#organization",
       },
       areaServed: "България",
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: "0",
+          currency: "BGN",
+        },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: {
+            "@type": "QuantitativeValue",
+            minValue: "1",
+            maxValue: "2",
+            unitCode: "DAY",
+          },
+        },
+      },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "BG",
+        returnPolicyCategory:
+          "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: "14",
+      },
     },
     aggregateRating: {
       "@type": "AggregateRating",
@@ -884,6 +928,16 @@ export function FinancialServiceSchema() {
     description:
       "Професионални услуги за допълнително здравно осигуряване за физически лица и компании",
     url: "https://dzo.bg",
+    telephone: "+359-888-123-456",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "ул. Lorem Ipsum 123",
+      addressLocality: "София",
+      postalCode: "1000",
+      addressCountry: "BG",
+    },
+    image: "https://dzo.bg/dobrovolno-zdravno-osiguriavane.jpg",
+    priceRange: "$$",
     serviceType: "Застрахователно посредничество",
     provider: {
       "@id": "https://dzo.bg/#organization",
@@ -903,11 +957,11 @@ export function FinancialServiceSchema() {
             name: "Индивидуална здравна застраховка",
             category: "Здравно осигуряване",
           },
-          price: "50",
+          price: "50.00",
           priceCurrency: "BGN",
           priceSpecification: {
             "@type": "PriceSpecification",
-            price: "50",
+            price: "50.00",
             priceCurrency: "BGN",
             billingIncrement: "MONTH",
           },
@@ -919,7 +973,7 @@ export function FinancialServiceSchema() {
             name: "Корпоративна здравна застраховка",
             category: "Здравно осигуряване",
           },
-          price: "по договаряне",
+          price: "100.00",
           priceCurrency: "BGN",
         },
       ],
