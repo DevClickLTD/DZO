@@ -1,6 +1,12 @@
 import HeroSection from "../components/hero";
 import { WebVitals } from "./web-vitals";
 import dynamic from "next/dynamic";
+import {
+  HomePageSchema,
+  BreadcrumbSchema,
+  FAQSchema,
+  FinancialServiceSchema,
+} from "../components/StructuredData";
 
 // Динамично зареждане на компоненти с lazy loading
 const Incentives = dynamic(() => import("../components/incentives"), {
@@ -55,8 +61,41 @@ export const metadata = {
 };
 
 export default function Home() {
+  // Breadcrumb данни за главната страница
+  const breadcrumbItems = [{ name: "Начало", url: "https://dzo.bg" }];
+
+  // FAQ данни за главната страница
+  const faqData = [
+    {
+      question: "Какво е допълнително здравно осигуряване (ДЗО)?",
+      answer:
+        "Допълнителното здравно осигуряване (ДЗО) е вид застраховка, която покрива медицински разходи, които не са включени в задължителното здравно осигуряване. То осигурява достъп до по-качествени медицински услуги и по-бързо лечение.",
+    },
+    {
+      question: "Какви са предимствата на ДЗО за компаниите?",
+      answer:
+        "ДЗО за компаниите осигурява по-здрави и мотивирани служители, намалява отсъствията по болест, подобрява имиджа на работодателя и може да се използва като данъчна облекчение.",
+    },
+    {
+      question: "Колко струва индивидуална здравна застраховка?",
+      answer:
+        "Цената на индивидуалната здравна застраховка варира в зависимост от възрастта, здравословното състояние и избрания пакет. Средната цена започва от 50 лв. месечно за основно покритие.",
+    },
+    {
+      question: "Какво покрива медицинската застраховка при пътуване?",
+      answer:
+        "Медицинската застраховка при пътуване покрива спешни медицински грижи, хоспитализация, лекарства, транспорт до медицинско заведение и реpatриация при необходимост.",
+    },
+  ];
+
   return (
     <>
+      {/* Структурирани данни специфични за главната страница */}
+      <HomePageSchema />
+      <BreadcrumbSchema items={breadcrumbItems} />
+      <FAQSchema faqs={faqData} />
+      <FinancialServiceSchema />
+
       <WebVitals />
       <HeroSection />
       <Incentives />

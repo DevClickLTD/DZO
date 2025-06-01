@@ -1,5 +1,7 @@
 import { getContactInfo } from "../../services/contacts";
 import Link from "next/link";
+import { BreadcrumbSchema } from "../../components/StructuredData";
+import Script from "next/script";
 
 export async function generateMetadata() {
   return {
@@ -12,8 +14,51 @@ export async function generateMetadata() {
 export default async function PrivacyPolicy() {
   const contactInfo = await getContactInfo();
 
+  // Breadcrumb данни за политиката за поверителност
+  const breadcrumbItems = [
+    { name: "Начало", url: "https://dzo.bg" },
+    { name: "Политика за поверителност", url: "https://dzo.bg/privacy-policy" },
+  ];
+
+  // Структурирани данни за WebPage
+  const webPageData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://dzo.bg/privacy-policy#webpage",
+    url: "https://dzo.bg/privacy-policy",
+    name: "Политика за поверителност - dzo.bg",
+    description:
+      "Политика за защита на личните данни на dzo.bg в съответствие с Регламент (ЕС) 2016/679.",
+    isPartOf: {
+      "@id": "https://dzo.bg/#website",
+    },
+    about: {
+      "@type": "Thing",
+      name: "Политика за поверителност",
+      description: "Защита на личните данни при ползване на услугите за ДЗО",
+    },
+    datePublished: "2020-01-01T00:00:00+02:00",
+    dateModified: "2024-01-01T00:00:00+02:00",
+    inLanguage: "bg",
+    mainEntity: {
+      "@type": "Article",
+      headline: "Политика за поверителност на личните данни",
+      about: "Защита на личните данни според GDPR",
+    },
+  };
+
   return (
     <div className="container mx-auto p-6 max-w-5xl bg-white py-12 prose prose-lg">
+      {/* Структурирани данни за страницата */}
+      <BreadcrumbSchema items={breadcrumbItems} />
+      <Script
+        id="privacy-policy-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(webPageData),
+        }}
+      />
+
       <h1 className="text-3xl font-bold mb-4 text-gray-800 border-b pb-2">
         Политика за поверителност на личните данни
       </h1>
@@ -233,7 +278,7 @@ export default async function PrivacyPolicy() {
       </p>
 
       {contactInfo && (
-        <div >
+        <div>
           <h3 className="text-xl font-semibold">Контакти</h3>
           <p>
             Ако имате въпроси относно тази политика или обработката на личните

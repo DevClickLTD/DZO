@@ -6,6 +6,10 @@ import {
 import { getContactInfo } from "../../services/contacts";
 import ContactForm from "../../components/contactForm"; // Вкарваме клиентската форма
 import Link from "next/link";
+import {
+  ContactPageSchema,
+  BreadcrumbSchema,
+} from "../../components/StructuredData";
 
 export async function generateMetadata() {
   return {
@@ -33,8 +37,18 @@ export async function generateMetadata() {
 export default async function ContactPage() {
   const contactInfo = await getContactInfo();
 
+  // Breadcrumb данни за контактната страница
+  const breadcrumbItems = [
+    { name: "Начало", url: "https://dzo.bg" },
+    { name: "Контакти", url: "https://dzo.bg/contact" },
+  ];
+
   return (
     <div className="relative isolate bg-white">
+      {/* Структурирани данни за контактната страница */}
+      <ContactPageSchema />
+      <BreadcrumbSchema items={breadcrumbItems} />
+
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div className="px-6 pt-24 pb-20 sm:pt-24 lg:static lg:px-8 lg:py-24">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">

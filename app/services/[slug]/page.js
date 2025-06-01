@@ -1,7 +1,10 @@
 import { getServiceBySlug } from "../../../services/services";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
-import Script from "next/script";
+import {
+  ProductSchema,
+  BreadcrumbSchema,
+} from "../../../components/StructuredData";
 
 // Динамично зареждане на компоненти за по-добро разделяне на кода
 const ServiceContent = dynamic(
@@ -71,38 +74,32 @@ export default async function ServicePage({ params }) {
     const ogImage =
       meta.og_image && meta.og_image.length > 0 ? meta.og_image[0].url : "";
 
-    // Подготвяме структурирани данни за Schema.org
-    const serviceSchemaData = {
-      "@context": "https://schema.org",
-      "@type": "Service",
+    // Подготвяме данните за структурираните данни
+    const serviceData = {
+      slug: slug,
       name: service[0].title.rendered,
       description:
         service[0].content.rendered.replace(/<[^>]+>/g, "").substring(0, 200) +
         "...",
-      url: meta.canonical || `https://example.bg/services/${slug}`,
-      provider: {
-        "@type": "Organization",
-        name: "NextLevel Services",
-        url: "https://example.bg",
-        logo: "https://example.bg/logo.png",
-      },
-      image: ogImage || "https://example.bg/placeholder.webp",
-      offers: {
-        "@type": "Offer",
-        price: "Свържете се с нас за цена",
-        priceCurrency: "BGN",
-      },
+      image: ogImage || "https://dzo.bg/placeholder.webp",
+      price: "по договаряне",
     };
+
+    // Breadcrumb данни
+    const breadcrumbItems = [
+      { name: "Начало", url: "https://dzo.bg" },
+      { name: "Услуги", url: "https://dzo.bg/services" },
+      {
+        name: service[0].title.rendered,
+        url: `https://dzo.bg/services/${slug}`,
+      },
+    ];
 
     return (
       <>
-        <Script
-          id="service-schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(serviceSchemaData),
-          }}
-        />
+        {/* Подобрени структурирани данни за услугата */}
+        <ProductSchema service={serviceData} />
+        <BreadcrumbSchema items={breadcrumbItems} />
 
         <div className="bg-white">
           <div className="mx-auto max-w-10/10 py-0 sm:px-6 sm:py-0 lg:px-0">

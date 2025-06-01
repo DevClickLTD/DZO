@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BlogSchema, BreadcrumbSchema } from "../../components/StructuredData";
 
 export const metadata = {
   title: "Блог - dzo.bg",
@@ -47,8 +48,18 @@ export default async function Blog({ searchParams }) {
   const totalPagesHeader = response.headers.get("x-wp-totalpages");
   const totalPages = Number(totalPagesHeader) || 1;
 
+  // Breadcrumb данни за блог страницата
+  const breadcrumbItems = [
+    { name: "Начало", url: "https://dzo.bg" },
+    { name: "Блог", url: "https://dzo.bg/blog" },
+  ];
+
   return (
     <>
+      {/* Структурирани данни за блог страницата */}
+      <BlogSchema />
+      <BreadcrumbSchema items={breadcrumbItems} />
+
       <div className="bg-white">
         <div className="mx-auto max-w-10/10 py-0 sm:px-6 sm:py-0 lg:px-0">
           <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-12 text-center shadow-2xl sm:px-12">

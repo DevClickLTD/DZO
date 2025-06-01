@@ -1,4 +1,8 @@
 import { getPostBySlug } from "../../../services/posts";
+import {
+  ArticleSchema,
+  BreadcrumbSchema,
+} from "../../../components/StructuredData";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -39,8 +43,35 @@ export default async function PostPage({ params }) {
     const ogImage =
       meta.og_image && meta.og_image.length > 0 ? meta.og_image[0].url : "";
 
+    // Подготвяме данните за структурираните данни
+    const articleData = {
+      slug: slug,
+      title: post[0].title.rendered,
+      description: meta.description,
+      image: ogImage,
+      datePublished: post[0].date,
+      dateModified: post[0].modified || post[0].date,
+      author: "Екип ДЗО.БГ",
+      keywords:
+        meta.keywords ||
+        "допълнително здравно осигуряване, ДЗО, здравна застраховка",
+      wordCount: post[0].content.rendered.replace(/<[^>]+>/g, "").split(" ")
+        .length,
+    };
+
+    // Breadcrumb данни
+    const breadcrumbItems = [
+      { name: "Начало", url: "https://dzo.bg" },
+      { name: "Блог", url: "https://dzo.bg/blog" },
+      { name: post[0].title.rendered, url: `https://dzo.bg/blog/${slug}` },
+    ];
+
     return (
       <>
+        {/* Структурирани данни за статията */}
+        <ArticleSchema article={articleData} />
+        <BreadcrumbSchema items={breadcrumbItems} />
+
         <div className="bg-white">
           <div className="mx-auto max-w-10/10 py-0 sm:px-6 sm:py-0 lg:px-0">
             <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-23 text-center shadow-2xl sm:px-23">

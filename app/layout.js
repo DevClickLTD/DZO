@@ -8,6 +8,11 @@ import { Analytics } from "@vercel/analytics/next";
 import NextTopLoader from "nextjs-toploader";
 import "../styles/globals.css";
 import { Roboto } from "next/font/google";
+import {
+  LocalBusinessSchema,
+  WebsiteSchema,
+  OrganizationSchema,
+} from "../components/StructuredData";
 
 const roboto = Roboto({
   subsets: ["latin", "cyrillic"],
@@ -66,6 +71,11 @@ export default function RootLayout({ children }) {
     <html lang="bg">
       <head>
         <CriticalCSS />
+        {/* Основни структурирани данни за всички страници */}
+        <LocalBusinessSchema />
+        <WebsiteSchema />
+        <OrganizationSchema />
+
         <link
           rel="preconnect"
           href="https://dzo.polirane.net"
@@ -93,7 +103,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={roboto.className}>
-        <NextTopLoader color="#129160" showSpinner={false}/>
+        <NextTopLoader color="#129160" showSpinner={false} />
         <ImagePreloader />
         <Navigation />
         {children}
