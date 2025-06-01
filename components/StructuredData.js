@@ -551,6 +551,10 @@ export function ProductSchema({ service }) {
       areaServed: "България",
       shippingDetails: {
         "@type": "OfferShippingDetails",
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "BG",
+        },
         shippingRate: {
           "@type": "MonetaryAmount",
           value: "0",
@@ -564,6 +568,12 @@ export function ProductSchema({ service }) {
             maxValue: "2",
             unitCode: "DAY",
           },
+          transitTime: {
+            "@type": "QuantitativeValue",
+            minValue: "1",
+            maxValue: "2",
+            unitCode: "DAY",
+          },
         },
       },
       hasMerchantReturnPolicy: {
@@ -572,6 +582,8 @@ export function ProductSchema({ service }) {
         returnPolicyCategory:
           "https://schema.org/MerchantReturnFiniteReturnWindow",
         merchantReturnDays: "14",
+        returnFees: "https://schema.org/FreeReturn",
+        returnMethod: "https://schema.org/ReturnByMail",
       },
     },
     aggregateRating: {
