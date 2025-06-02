@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="bg-white">
         {/* Мобилен Hero с изображение най-отгоре - ще бъде LCP елемент за мобилни */}
         <div className="lg:hidden relative">
-          <div className="w-full">
+          <div className="w-full hidden sm:block">
             {/* Директно използване на HTML img за максимална производителност на LCP */}
             <img
               src="/dopalnitelno-zdravno-osiguriavane.jpg"
