@@ -23,6 +23,9 @@ const Newsletter = dynamic(() => import("../components/newsletter"), {
 const Coverage = dynamic(() => import("../components/Coverage"), {
   ssr: true,
 });
+const ContactForm = dynamic(() => import("../components/contactForm"), {
+  ssr: true,
+});
 const Lastestposts = dynamic(() => import("../components/latestposts"), {
   ssr: true,
 });
@@ -104,6 +107,7 @@ export default function Home() {
       <CTA />
       {/* <Newsletter /> */}
       <Coverage />
+      <ContactForm showHeader={true} />
       <Lastestposts />
     </>
   );

@@ -8,7 +8,7 @@ import Link from "next/link";
 const URL_FORM =
   "https://dzo.polirane.net/wp-json/contact-form-7/v1/contact-forms/93/feedback";
 
-export default function ContactForm() {
+export default function ContactForm({ showHeader = false }) {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
@@ -168,6 +168,16 @@ export default function ContactForm() {
 
   return (
     <div className="relative">
+      {showHeader && (
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+            Свържете се с нас
+          </h2>
+          <p className="mt-2 text-lg/8 text-gray-600">
+            Получете персонализирана оферта за допълнително здравно осигуряване
+          </p>
+        </div>
+      )}
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-opacity-50 z-10 pointer-events-none">
           <div className="w-12 h-12 border-4 border-gray-400 border-t-[#129160] rounded-full animate-spin"></div>
