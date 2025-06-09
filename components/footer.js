@@ -9,6 +9,7 @@ import Link from "next/link";
 const navigation = {
   pages: [
     { name: "Начало", href: "/" },
+    { name: "За нас", href: "/za-nas" },
     { name: "Блог", href: "/blog" },
     { name: "Контакти", href: "/contact" },
   ],
