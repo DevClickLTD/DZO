@@ -54,8 +54,8 @@ export default function ZaNasPage() {
           <div className="flex justify-center items-center">
             <div className="relative overflow-hidden rounded-lg shadow-lg max-w-full">
               <Image
-                src="/Удостоверение-№762_ЗБ_30_06_2021г.webp"
-                alt="Удостоверение за регистрация на Хорпорекс България ЕООД"
+                src="/certificate.png"
+                alt="Удостоверение за регистрация на Корпорекс България ЕООД"
                 width={800}
                 height={1000}
                 className="block mx-auto h-auto object-contain transition-transform duration-300 hover:scale-105"
