@@ -3,8 +3,8 @@
 import { PhoneIcon } from '@heroicons/react/24/solid';
 
 export default function CallButton() {
-  const phoneNumber = '+359887458463';
-  const displayNumber = '+359 887 458 463';
+  const phoneNumber = '+359876995177';
+  const displayNumber = '+359 876 995 177';
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
