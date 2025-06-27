@@ -107,13 +107,16 @@ export default function ServicesList({ services }) {
                       <span className="absolute inset-0" />
                       {service.title.rendered}
                     </h3>
-                    <p className="mt-5 text-md/6 text-gray-600">
-                      {service.content.rendered
-                        ? service.content.rendered
-                            .replace(/<[^>]+>/g, "")
-                            .substring(0, 450) + "..."
-                        : "Описание не е налично"}
-                    </p>
+                      <p 
+                      className="mt-5 text-md/6 text-gray-600"
+                      dangerouslySetInnerHTML={{
+                        __html: service.content.rendered
+                          ? service.content.rendered
+                              .replace(/<[^>]+>/g, "")
+                              .substring(0, 450) + "..."
+                          : "Описание не е налично"
+                      }}
+                    />
                   </div>
                 </div>
               </article>
